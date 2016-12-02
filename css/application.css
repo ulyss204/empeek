@@ -1,0 +1,41 @@
+body {
+	height: 100%;
+	border: 1px solid #000;
+	font-family: 'Open Sans', sans-serif;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+body::-webkit-scrollbar-track {
+    width: 9px;
+    background-color: #E6E6E6;
+}
+ 
+body::-webkit-scrollbar-thumb {
+
+  background-color: #5D5D5D;
+  outline: 1px solid slategrey;
+}
+.nav_wrapper {
+	height: 100%;
+	width: 270px;
+	background-color: #2B2F3E;
+	 
+}
+h1 {
+	font-size: 36pt;
+	color: #565A69;
+	
+	font-weight: 300;
+}
+ul .nav_item {
+	background-color: #F20C4E;
+	color: #fff;
+	font-weight: 400;
+	font-size: 18pt;
+	width: 100%;
+}
+.main_columns {
+
+}
