@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="Commenter">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Commenter</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/application.css" />
+    <script data-require="jquery@*" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+  	<div class="nav_wrapper">
+  		<h1>Main</h1>
+  		<ul>
+  			<li class="nav_item">Overview</li>
+  		</ul>
+  	</div>
+
+  	<div class="main">
+  		<div class="main_columns" >
+  			<h2>Items</h2>
+  			<div class="input">
+  				<input type="text" placeholder="Type name here...">
+  				<button class="btn">Add new</button>
+  			</div>
+        <div class="items-container" >
+          <main-item ></main-item>
+        </div>
+  			 	
+  		</div>
+  		<div class="main_columns">
+  			<h2>Comments #{{number}}</h2>
+  			<div class="chat"></div>
+  			<div class="comment">
+  				<div class="avatar"></div>
+  				<textarea name="" id="" cols="30" rows="10"></textarea>
+  			</div>
+  		</div>
+  	</div>
+
+    <!-- Directives -->
+    <script src="js/directives/create-item.js"></script>
+    <!-- Controllers -->
+    
+  </body>
+</html>
