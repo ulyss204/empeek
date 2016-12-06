@@ -28,6 +28,7 @@ textarea {
 	border-radius: 2px;
 	width: calc(100% - 75px);
     margin-left: 14px;
+    outline: none;
 }
 @media (max-width: 1200px) {
   body .main .main_columns {
@@ -44,8 +45,19 @@ textarea {
 }
 
 .main {
-	margin-left: 285px;
+	margin-left: 270px;
 	height: 100%;
+	overflow: auto;
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    -webkit-align-content:flex-start;
+    justify-content: space-around;
+    -webkit-justify-content:space-around;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
 }
 
 .item_border.active {
@@ -74,6 +86,11 @@ h1 {
 	border: none;	
 	margin-left: 10px;
 	float: right;
+	cursor: pointer;
+	outline: none;
+}
+.btn:hover {
+	opacity: 0.7;
 }
 ul {
 	padding: 0;
@@ -84,12 +101,17 @@ ul .nav_item {
 	font-size: 18pt;
 	width: 100%;
 	list-style: none;
-	padding: 15px 0;
+	
     text-indent: 25px;
 }
 .nav_item a {
 	text-decoration: none;
 	color: #fff;
+	padding: 15px 0;
+	display: block;
+}
+.nav_item a:hover {
+	opacity: 0.7;
 }
 .main_columns {
 	padding: 0 30px;
@@ -100,7 +122,7 @@ ul .nav_item {
 	margin-top: 35px;
 	width: 42%;
 	position: relative;
-	margin-left: 1.5%;
+	
 }
 .main_columns:last-child {
 	margin-top: 33px;
@@ -116,12 +138,13 @@ ul .nav_item {
 }
 
 .insert {
-	min-width: 200px;
+	min-width: 180px;
 	height: 36px;
 	border: 1px solid #CCCCCC;
 	border-radius: 2px;
 	text-indent: 10px;
 	width: calc( 100% - 185px);
+	outline: none;
 }
 .item_name {
 	font-size: 16pt;
@@ -182,6 +205,7 @@ ul .nav_item {
 }
 .comment-text {
 	margin: 0 0 0 66px;
+	line-height: 1.4;
 }
 .comment-block {
 	margin-bottom: 25px;
