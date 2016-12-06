@@ -5,49 +5,72 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <title>Commenter</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
     <link rel="stylesheet" href="css/application.css" />
     <script data-require="jquery@*" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
+    <!--  Naviation  -->
   	<div class="nav_wrapper">
   		<h1>Main</h1>
   		<ul>
-  			<li class="nav_item">Overview</li>
+  			<li class="nav_item"><a href="">Overview</a></li>
   		</ul>
   	</div>
 
-  	<div class="main">
+  	<div class="main" ng-controller="ItemShowController ">
   		<div class="main_columns" >
   			<h2>Items</h2>
-  			<div class="input">
-  				<input type="text" placeholder="Type name here...">
-  				<button class="btn">Add new</button>
-  			</div>
-        <div class="items-container" >
-          <main-item ></main-item>
-        </div>
+  			<form name="reviewForm" class="main_form" role="form" ng-controller="ItemCreateController"  ng-submit="addReview(items)">
+
+  				<input type="text" placeholder="Type name here..." ng-model="block.name" class="insert">
+  				<input type="submit" class="btn" value="Add new">
+  			   <!--  Adding items  -->
+          <div class="items-container">
+            <div  class="item-wrap" ng-class="{ active:tab === $index }"  ng-repeat="item in items track by $index" ng-click="setTab($index)">
+              <div class="item_border" ng-class="{ active:tab === $index }"></div>
+              <main-item name="item.name" number="item.number"  ></main-item>
+              <a href="" ng-click="remove(item)" class="btn-1">Delete</a>
+            </div>
+
+          </div>
+        </form>
   			 	
   		</div>
-  		<div class="main_columns">
-  			<h2>Comments #{{number}}</h2>
-  			<div class="chat"></div>
-  			<div class="comment">
-  				<div class="avatar"></div>
-  				<textarea name="" id="" cols="30" rows="10"></textarea>
-  			</div>
+  		<div class="main_columns" >
+  			
+        
+  			<div class="chat" ng-repeat="item in items"  ng-show="isSet($index)">
+          <h2>Comments #{{$index + 1}}</h2>
+          <form name="reviewForm" role="form" ng-controller="ItemCreateComment"  ng-enter="addComment(item)">
+            <!--  Comment Tab's Content  -->
+            <main-comment class="comment-border" txt="text.txt" avatar="text.avatar" ng-repeat="text in item.texts track by $index"></main-comment>
+            <div class="comment-input">	
+  				    <div class="avatar"></div>
+  				    <textarea  ng-model="block.txt"></textarea>
+            </div>
+  			  </form>
+        </div>
   		</div>
   	</div>
 
     <!-- Directives -->
+    <script src="js/directives/enter.js"></script>
     <script src="js/directives/create-item.js"></script>
+    <script src="js/directives/main-comment.js"></script>
+
     <!-- Controllers -->
+    <script src="js/controllers/item-create-controller.js"></script>
+    <script src="js/controllers/item-create-comment.js"></script>
+    <script src="js/controllers/ItemShowController.js"></script>
     
   </body>
 </html>
