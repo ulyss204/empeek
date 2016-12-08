@@ -32,7 +32,7 @@
   			<form name="reviewForm" class="main_form" role="form" ng-controller="ItemCreateController"  ng-submit="addReview(items)">
 
   				<input type="text" placeholder="Type name here..." ng-model="block.name" class="insert">
-  				<input type="submit" class="btn" value="Add new">
+  				<input type="submit" class="btn" value="Add new" ng-disabled="!block.name">
   			   <!--  Adding items  -->
           <div class="items-container">
             <div  class="item-wrap" ng-class="{ active:tab === $index }"  ng-repeat="item in items track by $index" ng-click="setTab($index)">
@@ -60,7 +60,7 @@
   			  </form>
         </div>
   		</div>
-      
+
   	</div>
 
     <!-- Directives -->
